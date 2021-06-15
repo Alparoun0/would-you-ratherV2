@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
  import {Button ,Form}   from 'react-bootstrap'; 
 import handelAnswerQuestion from '../actions/users'
  import QuestionResult from './questionresult'
+ import {Redirect} from 'react-router-dom'
 
 class Question extends Component{
 
@@ -40,7 +41,8 @@ class Question extends Component{
     render(){
         
 const {question } = this.props
-const {optionOne ,optionTwo} = question
+if (question === null) return <Redirect to ='/page404'/>
+     const {optionOne ,optionTwo} = question  
 
 //console.log('new qeest',question)
 // console.log('show props',this.props.id)
